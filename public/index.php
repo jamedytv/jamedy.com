@@ -22,5 +22,36 @@ $application = new Zend_Application(
     APPLICATION_ENV,
     APPLICATION_PATH . '/configs/application.ini'
 );
+
+//@todo clean this up, maybe a config file and maybe not globals.
+define('DEFAULT_SEARCH_STRING', 'hip-hop');
+define('DEFAULT_CRITERIA', 'nas');
+define('DEFAULT_VIDEO_ID', '1000111');
+
+/**Routing Info*/
+$FrontController=Zend_Controller_Front::getInstance();
+$Router = $FrontController->getRouter();
+
+$Router->addRoute("search", new Zend_Controller_Router_Route(
+		'/find/:searchString',
+		array(  'searchString' => DEFAULT_SEARCH_STRING,
+				'controller' => 'video',
+				'action' => 'search'
+		)));
+
+$Router->addRoute("browse", new Zend_Controller_Router_Route(
+		'/sounds-like/:criteria',
+		array(  'criteria' => DEFAULT_CRITERIA,
+				'controller' => 'video',
+				'action' => 'browse'
+		)));
+
+$Router->addRoute("watch", new Zend_Controller_Router_Route(
+		'/watch/:id',
+		array(  'id' => DEFAULT_VIDEO_ID,
+				'controller' => 'video',
+				'action' => 'watch'
+		)));
+
 $application->bootstrap()
             ->run();
