@@ -23,10 +23,11 @@ $application = new Zend_Application(
     APPLICATION_PATH . '/configs/application.ini'
 );
 
-//@todo clean this up, maybe a config file and maybe not globals.
-define('DEFAULT_SEARCH_STRING', 'hip-hop');
-define('DEFAULT_CRITERIA', 'nas');
-define('DEFAULT_VIDEO_ID', '1000111');
+// Get application default data
+$config = parse_ini_file(APPLICATION_PATH . '/configs/config.ini');
+define('DEFAULT_SEARCH_STRING', $config['default_search_string']);
+define('DEFAULT_CRITERIA', $config['default_search_criteria']);
+define('DEFAULT_VIDEO_ID', $config['default_video_id']);
 
 /**Routing Info*/
 $FrontController=Zend_Controller_Front::getInstance();
