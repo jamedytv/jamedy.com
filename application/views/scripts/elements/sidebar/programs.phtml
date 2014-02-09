@@ -1,0 +1,41 @@
+<div id="programs" class="widget tj-video">
+  <h3 class="widget-title"><span>Programs</span></h3>
+  <div class="widget-content">
+	<div class="open" id="tj-video-cat-1">
+	  <div class="cover">
+	    <iframe src="http://player.vimeo.com/video/32397612?title=0&amp;byline=0&amp;portrait=0" width=" 190 " height=" 120 " frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+	  </div>
+	  <p class="description">Lorem ipsum dolor sit</p>
+	</div>
+	<div class="hide" id="tj-video-cat-2">
+	  <div class="cover">
+	    <iframe src="http://player.vimeo.com/video/35014053?title=0&amp;byline=0&amp;portrait=0" width=" 190 " height=" 120 " frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+	  </div>
+	  <p class="description">Aenean et eros nunc</p>
+	</div>
+	<div class="hide" id="tj-video-cat-3">
+	  <div class="cover">
+	    <iframe src="http://player.vimeo.com/video/35003246?title=0&amp;byline=0&amp;portrait=0&amp;color=bdbdbd&amp;autoplay=0" width=" 190 " height=" 120 " frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+	  </div>
+	  <p class="description">Fusce fringilla ante</p>
+	</div>
+	<ul class="items">
+	  <li><a class="active" href="#tj-video-cat-1">Address Is Approximate </a></li>
+	  <li><a class="" href="#tj-video-cat-2">Florent Soulas - Foundation 2012 </a></li>
+	  <li><a class="" href="#tj-video-cat-3">Bill Maher - Irritable Bowl Syndrome </a></li>
+	</ul>
+	<script type="text/javascript">
+	  jQuery(function($) {
+		$("document").ready(function() {
+		  $(".tj-video li a").click(function() {
+			$(".tj-video .open").addClass("hide").removeClass("open");
+			$(".tj-video " + $(this).attr("href")).addClass("open").removeClass("hide");
+			$(".tj-video li a.active").removeClass("active");
+			$(this).addClass("active");
+			return false;
+		  })
+		});
+	  });
+	</script>
+  </div>
+</div>
