@@ -10,8 +10,7 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $x = new Application_Model_YoutubeDataFill();
-        $x->getResults();
+        
     }
 
 

@@ -1,28 +1,23 @@
 <?php
-
 class Application_Model_YoutubeDataFill {
-	public function __construct()
+	
+	private $uri;
+	
+	public function __construct( $uri )
 	{
-		
+		$this->uri = $uri;	
 	}
 	
-	public function getResults()
+	public function getVideos()
 	{
-	  $client = new Google_Client();
-	  $client->setDeveloperKey(DEVELOPER_KEY);
+		$ch = curl_init($this->uri);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		try {
+			$json = curl_exec($ch);
+		} catch (Exception $e) {
+			print("curl didn't work");
+		}
 		
-	  $youtube = new Google_Service_Youtube($client);
-	  print_r($youtube);
-	  die();
-		
-	  try 
-	  {
-		$searchResponse = $youtube->search->listSearch('id,snippet', array(
-				'q' => $_GET['q'],
-				'maxResults' => $_GET['maxResults'],
-		));
-	  } catch (Exception $e) {
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
-}
+		print_r( $json );
 	}
 }

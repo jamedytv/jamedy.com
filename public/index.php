@@ -29,6 +29,8 @@ define('DEFAULT_SEARCH_STRING', $config['default_search_string']);
 define('DEFAULT_CRITERIA', $config['default_search_criteria']);
 define('DEFAULT_VIDEO_ID', $config['default_video_id']);
 define('GOOGLE_API_KEY', $config['google_api_key']);
+define('GOOGLE_API_CLIENT_ID', $config['google_api_client_id']);
+define('GOOGLE_API_EMAIL_ADDRESS', $config['google_api_email_address']);
 
 /**Routing Info*/
 $FrontController=Zend_Controller_Front::getInstance();
