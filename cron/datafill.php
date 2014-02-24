@@ -10,28 +10,27 @@ $channels = array( "JamedyTv" => "UCUmVcerQgMg0C7bfosM-WwA"
 
 $youtube = new Application_Model_Youtube();
 
-$response = $youtube->getVideosByChannelId("UCUmVcerQgMg0C7bfosM-WwA");
-$response = json_decode($response);
 
-foreach( $response->items as $item)
+
+foreach( $channels as $channel=>$channelId )
 {
-	if($item->kind == "youtube#video")
+	$response = $youtube->getVideosByChannelId("UCUmVcerQgMg0C7bfosM-WwA");
+	$response = json_decode($response);
+	
+	foreach( $response->items as $item)
 	{
-		$video = new Video_Youtube();
-		$video->videoId = $item->id->videoId;
-		$video->publishedAt = $item->snippet->publishedAt;
-		$video->title = $item->snippet->title;
-		$video->description = $item->snippet->description;
-		$video->thumbnails['default'] = $item->snippet->thumbnails->default->url;
-		$video->thumbnails['medium'] = $item->snippet->thumbnails->medium->url;
-		$video->thumbnails['high'] = $item->snippet->thumbnails->high->url;
-		print_r($video);
+		if($item->id->kind == "youtube#video")
+		{
+			$video = new Video_Youtube();
+			$video->videoId = $item->id->videoId;
+			$video->publishedAt = $item->snippet->publishedAt;
+			$video->title = $item->snippet->title;
+			$video->description = $item->snippet->description;
+			$video->thumbnails['default'] = $item->snippet->thumbnails->default->url;
+			$video->thumbnails['medium'] = $item->snippet->thumbnails->medium->url;
+			$video->thumbnails['high'] = $item->snippet->thumbnails->high->url;
+			print_r($video);
+		}
 	}
 }
-
-/* foreach( $channels as $channel=>$channelId )
-{
-	$response = $youtube->getVideosByChannelId($channelId);
-	print_r($response);
-} */
 
