@@ -23,36 +23,27 @@ $application = new Zend_Application(
     APPLICATION_PATH . '/configs/application.ini'
 );
 
-// Get application default data
-$config = parse_ini_file(APPLICATION_PATH . '/configs/config.ini');
-define('DEFAULT_SEARCH_STRING', $config['default_search_string']);
-define('DEFAULT_CRITERIA', $config['default_search_criteria']);
-define('DEFAULT_VIDEO_ID', $config['default_video_id']);
-define('GOOGLE_API_KEY', $config['google_api_key']);
-define('GOOGLE_API_CLIENT_ID', $config['google_api_client_id']);
-define('GOOGLE_API_EMAIL_ADDRESS', $config['google_api_email_address']);
-
 /**Routing Info*/
 $FrontController=Zend_Controller_Front::getInstance();
 $Router = $FrontController->getRouter();
 
 $Router->addRoute("search", new Zend_Controller_Router_Route(
 		'/find/:searchString',
-		array(  'searchString' => DEFAULT_SEARCH_STRING,
+		array(  'searchString' => "hip-hop",
 				'controller' => 'video',
 				'action' => 'search'
 		)));
 
 $Router->addRoute("browse", new Zend_Controller_Router_Route(
 		'/sounds-like/:criteria',
-		array(  'criteria' => DEFAULT_CRITERIA,
+		array(  'criteria' => "nas",
 				'controller' => 'video',
 				'action' => 'browse'
 		)));
 
 $Router->addRoute("watch", new Zend_Controller_Router_Route(
 		'/watch/:id',
-		array(  'id' => DEFAULT_VIDEO_ID,
+		array(  'id' => "111222",
 				'controller' => 'video',
 				'action' => 'watch'
 		)));
