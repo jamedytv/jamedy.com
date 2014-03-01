@@ -1,5 +1,5 @@
 <?php
-abstract class Video_Longtail {
+class Video_Longtail {
 	public $controls;
 	public $skin;
 	public $width;

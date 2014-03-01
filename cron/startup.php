@@ -9,7 +9,7 @@ spl_autoload_register(function ($class) {
 		require_once APPLICATION_PATH . '/models/' . str_replace("Application_Model_", "", $class) . '.php'; 
 	} else {
 		$path = str_replace( '_', '/', $class );
-		require_once APPLICATION_PATH . '/classes/' . $path . '.class.php';
+		require_once APPLICATION_PATH . '/namespaces/' . $path . '.class.php';
 	}
 });
 ?>

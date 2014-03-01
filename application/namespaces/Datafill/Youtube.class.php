@@ -1,5 +1,5 @@
 <?php
-class Application_Model_Youtube {
+class Datafill_Youtube {
 	private $baseUri = "https://www.googleapis.com/youtube/v3/";
 	private $apiKey = "AIzaSyDG4sP-_CavXkqPjZiSEg7CNt0ZxVMFH00";
 	
