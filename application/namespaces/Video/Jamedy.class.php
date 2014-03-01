@@ -1,5 +1,5 @@
 <?php
-class Video_Jamedy extends Video_Longtail{
+class Video_Jamedy {
 	public $video_id = null;
 	public $file = null;
 	public $image = null;

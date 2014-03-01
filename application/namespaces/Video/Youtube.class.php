@@ -1,5 +1,5 @@
 <?php
-class Video_Youtube extends Video_Longtail{
+class Video_Youtube {
 	public $videoId = null;
 	public $publishedAt = null;
 	public $title = null;

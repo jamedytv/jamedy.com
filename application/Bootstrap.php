@@ -13,7 +13,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 	{
 		spl_autoload_register(function ($class) {
 			$path = str_replace( '_', '/', $class );
-			include APPLICATION_PATH . '/classes/' . $path . '.class.php';
+			include APPLICATION_PATH . '/namespaces/' . $path . '.class.php';
 		});
 	}
 	
